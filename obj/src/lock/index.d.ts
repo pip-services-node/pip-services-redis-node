@@ -1,0 +1,1 @@
+export { RedisLock } from './RedisLock';

@@ -1,0 +1,1 @@
+export { DefaultRedisFactory } from './DefaultRedisFactory';
