@@ -8,7 +8,9 @@ services:
     image: ${IMAGE:-pipdevs/test}
     depends_on:
       - redis
-      - fluentd
+    environment:
+      - REDIS_SERVICE_HOST=redis
+      - REDIS_SERVICE_PORT=6379
 
   redis:
     image: redis:latest

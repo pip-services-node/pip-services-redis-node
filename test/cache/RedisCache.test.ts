@@ -13,8 +13,8 @@ suite('RedisCache', ()=> {
     let _fixture: CacheFixture;
 
     setup((done) => {
-        let host = process.env['REDIS_HOST'] || 'localhost';
-        let port = process.env['REDIS_PORT'] || 6379;
+        let host = process.env['REDIS_SERVICE_HOST'] || 'localhost';
+        let port = process.env['REDIS_SERVICE_PORT'] || 6379;
 
         _cache = new RedisCache();
 

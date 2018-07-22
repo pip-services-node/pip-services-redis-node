@@ -8,8 +8,8 @@ suite('RedisLock', ()=> {
     var _fixture: LockFixture;
 
     setup((done) => {
-        let host = process.env['REDIS_HOST'] || 'localhost';
-        let port = process.env['REDIS_PORT'] || 6379;
+        let host = process.env['REDIS_SERVICE_HOST'] || 'localhost';
+        let port = process.env['REDIS_SERVICE_PORT'] || 6379;
 
         _lock = new RedisLock();
 
