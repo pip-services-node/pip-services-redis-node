@@ -24,7 +24,7 @@ class RedisCache {
         this._connectionResolver.setReferences(references);
         this._credentialResolver.setReferences(references);
     }
-    isOpened() {
+    isOpen() {
         return this._client;
     }
     open(correlationId, callback) {
@@ -82,7 +82,7 @@ class RedisCache {
         }
     }
     checkOpened(correlationId, callback) {
-        if (!this.isOpened()) {
+        if (!this.isOpen()) {
             let err = new pip_services_commons_node_1.InvalidStateException(correlationId, 'NOT_OPENED', 'Connection is not opened');
             callback(err, null);
             return false;

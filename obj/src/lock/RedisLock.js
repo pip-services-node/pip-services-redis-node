@@ -28,7 +28,7 @@ class RedisLock extends pip_services_components_node_3.Lock {
         this._connectionResolver.setReferences(references);
         this._credentialResolver.setReferences(references);
     }
-    isOpened() {
+    isOpen() {
         return this._client;
     }
     open(correlationId, callback) {
@@ -86,7 +86,7 @@ class RedisLock extends pip_services_components_node_3.Lock {
         }
     }
     checkOpened(correlationId, callback) {
-        if (!this.isOpened()) {
+        if (!this.isOpen()) {
             let err = new pip_services_commons_node_2.InvalidStateException(correlationId, 'NOT_OPENED', 'Connection is not opened');
             callback(err, null);
             return false;

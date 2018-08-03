@@ -38,7 +38,7 @@ export class RedisCache implements ICache, IConfigurable, IReferenceable, IOpena
         this._credentialResolver.setReferences(references);
     }
 
-    public isOpened(): boolean {
+    public isOpen(): boolean {
         return this._client;
     }
 
@@ -99,7 +99,7 @@ export class RedisCache implements ICache, IConfigurable, IReferenceable, IOpena
     }
 
     private checkOpened(correlationId: string, callback: any): boolean {
-        if (!this.isOpened()) {
+        if (!this.isOpen()) {
             let err = new InvalidStateException(correlationId, 'NOT_OPENED', 'Connection is not opened');
             callback(err, null);
             return false;
