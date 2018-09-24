@@ -25,8 +25,6 @@ const pip_services_components_node_3 = require("pip-services-components-node");
  * options:
  *   retry_timeout:         timeout in milliseconds to retry lock acquisition. (Default: 100)
  *   retries:               number of retries (default: 3)
- *   timeout:               default caching timeout in milliseconds (default: 1 minute)
- *   max_size:              maximum number of values stored in this cache (default: 1000)
  *
  * ### References ###
  *
