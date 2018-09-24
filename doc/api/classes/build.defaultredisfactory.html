@@ -54,7 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="defaultredisfactory.html">DefaultRedisFactory</a>
+					<a href="../modules/build.html">build</a>
+				</li>
+				<li>
+					<a href="build.defaultredisfactory.html">DefaultRedisFactory</a>
 				</li>
 			</ul>
 			<h1>Class DefaultRedisFactory</h1>
@@ -64,6 +67,21 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Creates Redis components by their descriptors.</p>
+					</div>
+					<dl class="tsd-comment-tags">
+						<dt>see</dt>
+						<dd><p><a href="cache.rediscache.html">RedisCache</a></p>
+						</dd>
+						<dt>see</dt>
+						<dd><p><a href="lock.redislock.html">RedisLock</a></p>
+						</dd>
+					</dl>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -90,24 +108,24 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="defaultredisfactory.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="build.defaultredisfactory.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="defaultredisfactory.html#descriptor" class="tsd-kind-icon">Descriptor</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="defaultredisfactory.html#rediscachedescriptor" class="tsd-kind-icon">Redis<wbr>Cache<wbr>Descriptor</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="defaultredisfactory.html#redislockdescriptor" class="tsd-kind-icon">Redis<wbr>Lock<wbr>Descriptor</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="build.defaultredisfactory.html#descriptor" class="tsd-kind-icon">Descriptor</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="build.defaultredisfactory.html#rediscachedescriptor" class="tsd-kind-icon">Redis<wbr>Cache<wbr>Descriptor</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="build.defaultredisfactory.html#redislockdescriptor" class="tsd-kind-icon">Redis<wbr>Lock<wbr>Descriptor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-inherited">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="defaultredisfactory.html#cancreate" class="tsd-kind-icon">can<wbr>Create</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="defaultredisfactory.html#create" class="tsd-kind-icon">create</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="defaultredisfactory.html#register" class="tsd-kind-icon">register</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="defaultredisfactory.html#registerastype" class="tsd-kind-icon">register<wbr>AsType</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="build.defaultredisfactory.html#cancreate" class="tsd-kind-icon">can<wbr>Create</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="build.defaultredisfactory.html#create" class="tsd-kind-icon">create</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="build.defaultredisfactory.html#register" class="tsd-kind-icon">register</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="build.defaultredisfactory.html#registerastype" class="tsd-kind-icon">register<wbr>AsType</a></li>
 							</ul>
 						</section>
 					</div>
@@ -119,16 +137,21 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Default<wbr>Redis<wbr>Factory<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="defaultredisfactory.html" class="tsd-signature-type">DefaultRedisFactory</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Default<wbr>Redis<wbr>Factory<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="build.defaultredisfactory.html" class="tsd-signature-type">DefaultRedisFactory</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/8268b3a/src/build/DefaultRedisFactory.ts#L10">build/DefaultRedisFactory.ts:10</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/aa8bd3d/src/build/DefaultRedisFactory.ts#L17">build/DefaultRedisFactory.ts:17</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <a href="defaultredisfactory.html" class="tsd-signature-type">DefaultRedisFactory</a></h4>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Create a new instance of the factory.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="build.defaultredisfactory.html" class="tsd-signature-type">DefaultRedisFactory</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -141,7 +164,7 @@
 					<div class="tsd-signature tsd-kind-icon">Descriptor<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Descriptor</span><span class="tsd-signature-symbol"> =&nbsp;new Descriptor(&quot;pip-services&quot;, &quot;factory&quot;, &quot;redis&quot;, &quot;default&quot;, &quot;1.0&quot;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/8268b3a/src/build/DefaultRedisFactory.ts#L8">build/DefaultRedisFactory.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/aa8bd3d/src/build/DefaultRedisFactory.ts#L15">build/DefaultRedisFactory.ts:15</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -151,7 +174,7 @@
 					<div class="tsd-signature tsd-kind-icon">Redis<wbr>Cache<wbr>Descriptor<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Descriptor</span><span class="tsd-signature-symbol"> =&nbsp;new Descriptor(&quot;pip-services&quot;, &quot;cache&quot;, &quot;redis&quot;, &quot;*&quot;, &quot;1.0&quot;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/8268b3a/src/build/DefaultRedisFactory.ts#L9">build/DefaultRedisFactory.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/aa8bd3d/src/build/DefaultRedisFactory.ts#L16">build/DefaultRedisFactory.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -161,7 +184,7 @@
 					<div class="tsd-signature tsd-kind-icon">Redis<wbr>Lock<wbr>Descriptor<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Descriptor</span><span class="tsd-signature-symbol"> =&nbsp;new Descriptor(&quot;pip-services&quot;, &quot;lock&quot;, &quot;redis&quot;, &quot;*&quot;, &quot;1.0&quot;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/8268b3a/src/build/DefaultRedisFactory.ts#L10">build/DefaultRedisFactory.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/aa8bd3d/src/build/DefaultRedisFactory.ts#L17">build/DefaultRedisFactory.ts:17</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -179,7 +202,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Factory.canCreate</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-redis-node/node_modules/pip-services-components-node/obj/src/build/Factory.d.ts:50</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-redis-node/node_modules/pip-services-components-node/obj/src/build/Factory.d.ts:51</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -212,7 +235,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Factory.create</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-redis-node/node_modules/pip-services-components-node/obj/src/build/Factory.d.ts:59</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-redis-node/node_modules/pip-services-components-node/obj/src/build/Factory.d.ts:60</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -221,7 +244,7 @@
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>throws</dt>
-									<dd><p>a CreateException, if it fails to create an object using the given locator.</p>
+									<dd><p>a CreateException if it fails to create an object using the given locator.</p>
 									</dd>
 								</dl>
 							</div>
@@ -250,7 +273,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Factory.register</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-redis-node/node_modules/pip-services-components-node/obj/src/build/Factory.d.ts:34</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-redis-node/node_modules/pip-services-components-node/obj/src/build/Factory.d.ts:35</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -314,12 +337,12 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Factory.registerAsType</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-redis-node/node_modules/pip-services-components-node/obj/src/build/Factory.d.ts:43</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-redis-node/node_modules/pip-services-components-node/obj/src/build/Factory.d.ts:44</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Registers a factory that can create instance of &#39;objectFactory&#39; classes.</p>
+									<p>Registers a factory that can create instances of &#39;objectFactory&#39; classes.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>throws</dt>
@@ -354,55 +377,55 @@
 					<li class="globals  ">
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
+					<li class="current tsd-kind-external-module">
+						<a href="../modules/build.html">build</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/cache.html">cache</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/index.html">index</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/lock.html">lock</a>
+					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-class">
-						<a href="defaultredisfactory.html" class="tsd-kind-icon">Default<wbr>Redis<wbr>Factory</a>
+					<li class="current tsd-kind-class tsd-parent-kind-external-module">
+						<a href="build.defaultredisfactory.html" class="tsd-kind-icon">Default<wbr>Redis<wbr>Factory</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="defaultredisfactory.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="build.defaultredisfactory.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
-								<a href="defaultredisfactory.html#descriptor" class="tsd-kind-icon">Descriptor</a>
+								<a href="build.defaultredisfactory.html#descriptor" class="tsd-kind-icon">Descriptor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
-								<a href="defaultredisfactory.html#rediscachedescriptor" class="tsd-kind-icon">Redis<wbr>Cache<wbr>Descriptor</a>
+								<a href="build.defaultredisfactory.html#rediscachedescriptor" class="tsd-kind-icon">Redis<wbr>Cache<wbr>Descriptor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
-								<a href="defaultredisfactory.html#redislockdescriptor" class="tsd-kind-icon">Redis<wbr>Lock<wbr>Descriptor</a>
+								<a href="build.defaultredisfactory.html#redislockdescriptor" class="tsd-kind-icon">Redis<wbr>Lock<wbr>Descriptor</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="defaultredisfactory.html#cancreate" class="tsd-kind-icon">can<wbr>Create</a>
+								<a href="build.defaultredisfactory.html#cancreate" class="tsd-kind-icon">can<wbr>Create</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="defaultredisfactory.html#create" class="tsd-kind-icon">create</a>
+								<a href="build.defaultredisfactory.html#create" class="tsd-kind-icon">create</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="defaultredisfactory.html#register" class="tsd-kind-icon">register</a>
+								<a href="build.defaultredisfactory.html#register" class="tsd-kind-icon">register</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="defaultredisfactory.html#registerastype" class="tsd-kind-icon">register<wbr>AsType</a>
+								<a href="build.defaultredisfactory.html#registerastype" class="tsd-kind-icon">register<wbr>AsType</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-class">
-						<a href="rediscache.html" class="tsd-kind-icon">Redis<wbr>Cache</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="redislock.html" class="tsd-kind-icon">Redis<wbr>Lock</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="../globals.html#_" class="tsd-kind-icon">_</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="../globals.html#async" class="tsd-kind-icon">async</a>
-					</li>
 				</ul>
 			</nav>
 		</div>

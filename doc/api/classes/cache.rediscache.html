@@ -54,7 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="rediscache.html">RedisCache</a>
+					<a href="../modules/cache.html">cache</a>
+				</li>
+				<li>
+					<a href="cache.rediscache.html">RedisCache</a>
 				</li>
 			</ul>
 			<h1>Class RedisCache</h1>
@@ -64,6 +67,46 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Distributed cache that stores values in Redis in-memory database.</p>
+					</div>
+					<h3 id="configuration-parameters">Configuration parameters</h3>
+					<p>connection(s):
+						discovery_key:         (optional) a key to retrieve the connection from [[IDiscovery]]
+						host:                  host name or IP address
+						port:                  port number
+						uri:                   resource URI or connection string with all parameters in it
+						credential(s):
+						store_key:             key to retrieve parameters from credential store
+						username:              user name (currently is not used)
+						password:              user password
+						options:
+						retries:               number of retries (default: 3)
+						timeout:               default caching timeout in milliseconds (default: 1 minute)
+					max_size:              maximum number of values stored in this cache (default: 1000)</p>
+					<h3 id="references">References</h3>
+					<ul>
+						<li><em>:discovery:</em>:*:1.0        (optional) IDiscovery services to resolve connection</li>
+						<li><em>:credential-store:</em>:*:1.0 (optional) Credential stores to resolve credential</li>
+					</ul>
+					<h3 id="example">Example</h3>
+					<p>let cache = new RedisCache();
+						cache.configure(ConfigParams.fromTuples(
+						&quot;host&quot;, &quot;localhost&quot;,
+						&quot;port&quot;, 6379
+					));</p>
+					<p>cache.open(&quot;123&quot;, (err) =&gt; {
+						...
+					});</p>
+					<p>cache.store(&quot;123&quot;, &quot;key1&quot;, &quot;ABC&quot;, (err) =&gt; {
+						cache.store(&quot;123&quot;, &quot;key1&quot;, (err, value) =&gt; {
+						// Result: &quot;ABC&quot;
+						});
+					});</p>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -88,32 +131,20 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="rediscache.html#constructor" class="tsd-kind-icon">constructor</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
-							<h3>Properties</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="rediscache.html#_client" class="tsd-kind-icon">_client</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="rediscache.html#_connectionresolver" class="tsd-kind-icon">_connection<wbr>Resolver</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="rediscache.html#_credentialresolver" class="tsd-kind-icon">_credential<wbr>Resolver</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="rediscache.html#_retries" class="tsd-kind-icon">_retries</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="rediscache.html#_timeout" class="tsd-kind-icon">_timeout</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="cache.rediscache.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="rediscache.html#checkopened" class="tsd-kind-icon">check<wbr>Opened</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="rediscache.html#close" class="tsd-kind-icon">close</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="rediscache.html#configure" class="tsd-kind-icon">configure</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="rediscache.html#isopened" class="tsd-kind-icon">is<wbr>Opened</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="rediscache.html#open" class="tsd-kind-icon">open</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="rediscache.html#remove" class="tsd-kind-icon">remove</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="rediscache.html#retrieve" class="tsd-kind-icon">retrieve</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="rediscache.html#retrystrategy" class="tsd-kind-icon">retry<wbr>Strategy</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="rediscache.html#setreferences" class="tsd-kind-icon">set<wbr>References</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="rediscache.html#store" class="tsd-kind-icon">store</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="cache.rediscache.html#close" class="tsd-kind-icon">close</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="cache.rediscache.html#configure" class="tsd-kind-icon">configure</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="cache.rediscache.html#isopen" class="tsd-kind-icon">is<wbr>Open</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="cache.rediscache.html#open" class="tsd-kind-icon">open</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="cache.rediscache.html#remove" class="tsd-kind-icon">remove</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="cache.rediscache.html#retrieve" class="tsd-kind-icon">retrieve</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="cache.rediscache.html#setreferences" class="tsd-kind-icon">set<wbr>References</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="cache.rediscache.html#store" class="tsd-kind-icon">store</a></li>
 							</ul>
 						</section>
 					</div>
@@ -125,101 +156,27 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Redis<wbr>Cache<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="rediscache.html" class="tsd-signature-type">RedisCache</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Redis<wbr>Cache<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="cache.rediscache.html" class="tsd-signature-type">RedisCache</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/8268b3a/src/cache/RedisCache.ts#L24">cache/RedisCache.ts:24</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/aa8bd3d/src/cache/RedisCache.ts#L69">cache/RedisCache.ts:69</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <a href="rediscache.html" class="tsd-signature-type">RedisCache</a></h4>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a new instance of this cache.</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="cache.rediscache.html" class="tsd-signature-type">RedisCache</a></h4>
 						</li>
 					</ul>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
-				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="_client" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _client</h3>
-					<div class="tsd-signature tsd-kind-icon">_client<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;null</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/8268b3a/src/cache/RedisCache.ts#L24">cache/RedisCache.ts:24</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="_connectionresolver" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _connection<wbr>Resolver</h3>
-					<div class="tsd-signature tsd-kind-icon">_connection<wbr>Resolver<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ConnectionResolver</span><span class="tsd-signature-symbol"> =&nbsp;new ConnectionResolver()</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/8268b3a/src/cache/RedisCache.ts#L18">cache/RedisCache.ts:18</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="_credentialresolver" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _credential<wbr>Resolver</h3>
-					<div class="tsd-signature tsd-kind-icon">_credential<wbr>Resolver<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CredentialResolver</span><span class="tsd-signature-symbol"> =&nbsp;new CredentialResolver()</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/8268b3a/src/cache/RedisCache.ts#L19">cache/RedisCache.ts:19</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="_retries" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _retries</h3>
-					<div class="tsd-signature tsd-kind-icon">_retries<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;3</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/8268b3a/src/cache/RedisCache.ts#L22">cache/RedisCache.ts:22</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="_timeout" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _timeout</h3>
-					<div class="tsd-signature tsd-kind-icon">_timeout<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;30000</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/8268b3a/src/cache/RedisCache.ts#L21">cache/RedisCache.ts:21</a></li>
-						</ul>
-					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
-					<a name="checkopened" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> check<wbr>Opened</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">check<wbr>Opened<span class="tsd-signature-symbol">(</span>correlationId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/8268b3a/src/cache/RedisCache.ts#L101">cache/RedisCache.ts:101</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>correlationId: <span class="tsd-signature-type">string</span></h5>
-								</li>
-								<li>
-									<h5>callback: <span class="tsd-signature-type">any</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-						</li>
-					</ul>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="close" class="tsd-anchor"></a>
 					<h3>close</h3>
@@ -230,16 +187,27 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/8268b3a/src/cache/RedisCache.ts#L90">cache/RedisCache.ts:90</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/aa8bd3d/src/cache/RedisCache.ts#L165">cache/RedisCache.ts:165</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Closes component and frees used resources.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>correlationId: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>(optional) transaction id to trace execution through call chain.</p>
+									</div>
 								</li>
 								<li>
 									<h5>callback: <span class="tsd-signature-type">function</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>callback function that receives error or null no errors occured.</p>
+									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
@@ -274,13 +242,21 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/8268b3a/src/cache/RedisCache.ts#L28">cache/RedisCache.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/aa8bd3d/src/cache/RedisCache.ts#L81">cache/RedisCache.ts:81</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Configures component by passing configuration parameters.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>config: <span class="tsd-signature-type">ConfigParams</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>configuration parameters to be set.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -288,19 +264,25 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="isopened" class="tsd-anchor"></a>
-					<h3>is<wbr>Opened</h3>
+					<a name="isopen" class="tsd-anchor"></a>
+					<h3>is<wbr>Open</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">is<wbr>Opened<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Open<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/8268b3a/src/cache/RedisCache.ts#L41">cache/RedisCache.ts:41</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/aa8bd3d/src/cache/RedisCache.ts#L104">cache/RedisCache.ts:104</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Checks if the component is opened.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p>true if the component has been opened and false otherwise.</p>
 						</li>
 					</ul>
 				</section>
@@ -314,16 +296,27 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/8268b3a/src/cache/RedisCache.ts#L45">cache/RedisCache.ts:45</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/aa8bd3d/src/cache/RedisCache.ts#L114">cache/RedisCache.ts:114</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Opens the component.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>correlationId: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>(optional) transaction id to trace execution through call chain.</p>
+									</div>
 								</li>
 								<li>
 									<h5>callback: <span class="tsd-signature-type">function</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>callback function that receives error or null no errors occured.</p>
+									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
@@ -358,19 +351,33 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/8268b3a/src/cache/RedisCache.ts#L144">cache/RedisCache.ts:144</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/aa8bd3d/src/cache/RedisCache.ts#L243">cache/RedisCache.ts:243</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Removes a value from the cache by its key.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>correlationId: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>(optional) transaction id to trace execution through call chain.</p>
+									</div>
 								</li>
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>a unique value key.</p>
+									</div>
 								</li>
 								<li>
 									<h5>callback: <span class="tsd-signature-type">function</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>(optional) callback function that receives an error or null for success</p>
+									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
@@ -405,19 +412,34 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/8268b3a/src/cache/RedisCache.ts#L130">cache/RedisCache.ts:130</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/aa8bd3d/src/cache/RedisCache.ts#L213">cache/RedisCache.ts:213</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Retrieves cached value from the cache using its key.
+									If value is missing in the cache or expired it returns null.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>correlationId: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>(optional) transaction id to trace execution through call chain.</p>
+									</div>
 								</li>
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>a unique value key.</p>
+									</div>
 								</li>
 								<li>
 									<h5>callback: <span class="tsd-signature-type">function</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>callback function that receives cached value or error.</p>
+									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
@@ -445,29 +467,6 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
-					<a name="retrystrategy" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> retry<wbr>Strategy</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">retry<wbr>Strategy<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/8268b3a/src/cache/RedisCache.ts#L111">cache/RedisCache.ts:111</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>options: <span class="tsd-signature-type">any</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-						</li>
-					</ul>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="setreferences" class="tsd-anchor"></a>
 					<h3>set<wbr>References</h3>
@@ -478,13 +477,21 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/8268b3a/src/cache/RedisCache.ts#L36">cache/RedisCache.ts:36</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/aa8bd3d/src/cache/RedisCache.ts#L94">cache/RedisCache.ts:94</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets references to dependent components.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>references: <span class="tsd-signature-type">IReferences</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>references to locate the component dependencies.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -501,25 +508,45 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/8268b3a/src/cache/RedisCache.ts#L137">cache/RedisCache.ts:137</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/aa8bd3d/src/cache/RedisCache.ts#L229">cache/RedisCache.ts:229</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Stores value in the cache with expiration time.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>correlationId: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>(optional) transaction id to trace execution through call chain.</p>
+									</div>
 								</li>
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>a unique value key.</p>
+									</div>
 								</li>
 								<li>
 									<h5>value: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>a value to store.</p>
+									</div>
 								</li>
 								<li>
 									<h5>timeout: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>expiration timeout in milliseconds.</p>
+									</div>
 								</li>
 								<li>
 									<h5>callback: <span class="tsd-signature-type">function</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>(optional) callback function that receives an error or null for success</p>
+									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
@@ -552,79 +579,58 @@
 					<li class="globals  ">
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/build.html">build</a>
+					</li>
+					<li class="current tsd-kind-external-module">
+						<a href="../modules/cache.html">cache</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/index.html">index</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/lock.html">lock</a>
+					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-class">
-						<a href="defaultredisfactory.html" class="tsd-kind-icon">Default<wbr>Redis<wbr>Factory</a>
-					</li>
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-class">
-						<a href="rediscache.html" class="tsd-kind-icon">Redis<wbr>Cache</a>
+					<li class="current tsd-kind-class tsd-parent-kind-external-module">
+						<a href="cache.rediscache.html" class="tsd-kind-icon">Redis<wbr>Cache</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="rediscache.html#constructor" class="tsd-kind-icon">constructor</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="rediscache.html#_client" class="tsd-kind-icon">_client</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="rediscache.html#_connectionresolver" class="tsd-kind-icon">_connection<wbr>Resolver</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="rediscache.html#_credentialresolver" class="tsd-kind-icon">_credential<wbr>Resolver</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="rediscache.html#_retries" class="tsd-kind-icon">_retries</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="rediscache.html#_timeout" class="tsd-kind-icon">_timeout</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
-								<a href="rediscache.html#checkopened" class="tsd-kind-icon">check<wbr>Opened</a>
+								<a href="cache.rediscache.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="rediscache.html#close" class="tsd-kind-icon">close</a>
+								<a href="cache.rediscache.html#close" class="tsd-kind-icon">close</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="rediscache.html#configure" class="tsd-kind-icon">configure</a>
+								<a href="cache.rediscache.html#configure" class="tsd-kind-icon">configure</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="rediscache.html#isopened" class="tsd-kind-icon">is<wbr>Opened</a>
+								<a href="cache.rediscache.html#isopen" class="tsd-kind-icon">is<wbr>Open</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="rediscache.html#open" class="tsd-kind-icon">open</a>
+								<a href="cache.rediscache.html#open" class="tsd-kind-icon">open</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="rediscache.html#remove" class="tsd-kind-icon">remove</a>
+								<a href="cache.rediscache.html#remove" class="tsd-kind-icon">remove</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="rediscache.html#retrieve" class="tsd-kind-icon">retrieve</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
-								<a href="rediscache.html#retrystrategy" class="tsd-kind-icon">retry<wbr>Strategy</a>
+								<a href="cache.rediscache.html#retrieve" class="tsd-kind-icon">retrieve</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="rediscache.html#setreferences" class="tsd-kind-icon">set<wbr>References</a>
+								<a href="cache.rediscache.html#setreferences" class="tsd-kind-icon">set<wbr>References</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="rediscache.html#store" class="tsd-kind-icon">store</a>
+								<a href="cache.rediscache.html#store" class="tsd-kind-icon">store</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-class">
-						<a href="redislock.html" class="tsd-kind-icon">Redis<wbr>Lock</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="../globals.html#_" class="tsd-kind-icon">_</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="../globals.html#async" class="tsd-kind-icon">async</a>
-					</li>
 				</ul>
 			</nav>
 		</div>

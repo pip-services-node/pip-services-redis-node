@@ -1,4 +1,7 @@
+/** @module cache */
+/** @hidden */
 const _ = require('lodash');
+/** @hidden */
 const async = require('async');
 
 import { ConfigParams } from 'pip-services-commons-node';

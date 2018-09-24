@@ -54,7 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="redislock.html">RedisLock</a>
+					<a href="../modules/lock.html">lock</a>
+				</li>
+				<li>
+					<a href="lock.redislock.html">RedisLock</a>
 				</li>
 			</ul>
 			<h1>Class RedisLock</h1>
@@ -64,6 +67,51 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Distributed lock that is implemented based on Redis in-memory database.</p>
+					</div>
+					<h3 id="configuration-parameters">Configuration parameters</h3>
+					<p>connection(s):
+						discovery_key:         (optional) a key to retrieve the connection from [[IDiscovery]]
+						host:                  host name or IP address
+						port:                  port number
+						uri:                   resource URI or connection string with all parameters in it
+						credential(s):
+						store_key:             key to retrieve parameters from credential store
+						username:              user name (currently is not used)
+						password:              user password
+						options:
+						retry_timeout:         timeout in milliseconds to retry lock acquisition. (Default: 100)
+					retries:               number of retries (default: 3)</p>
+					<h3 id="references">References</h3>
+					<ul>
+						<li><em>:discovery:</em>:*:1.0        (optional) IDiscovery services to resolve connection</li>
+						<li><em>:credential-store:</em>:*:1.0 (optional) Credential stores to resolve credential</li>
+					</ul>
+					<h3 id="example">Example</h3>
+					<p>let lock = new RedisRedis();
+						lock.configure(ConfigParams.fromTuples(
+						&quot;host&quot;, &quot;localhost&quot;,
+						&quot;port&quot;, 6379
+					));</p>
+					<p>lock.open(&quot;123&quot;, (err) =&gt; {
+						...
+					});</p>
+					<p>lock.acquire(&quot;123&quot;, &quot;key1&quot;, (err) =&gt; {
+						if (err == null) {
+						try {
+						// Processing...
+						} finally {
+						lock.releaseLock(&quot;123&quot;, &quot;key1&quot;, (err) =&gt; {
+						// Continue...
+						});
+						}
+						}
+					});</p>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -91,96 +139,20 @@
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
-						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
-							<h3>Properties</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="redislock.html#_client" class="tsd-kind-icon">_client</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="redislock.html#_connectionresolver" class="tsd-kind-icon">_connection<wbr>Resolver</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="redislock.html#_credentialresolver" class="tsd-kind-icon">_credential<wbr>Resolver</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="redislock.html#_lock" class="tsd-kind-icon">_lock</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="redislock.html#_retries" class="tsd-kind-icon">_retries</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="redislock.html#_timeout" class="tsd-kind-icon">_timeout</a></li>
-							</ul>
-						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="redislock.html#acquirelock" class="tsd-kind-icon">acquire<wbr>Lock</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="redislock.html#checkopened" class="tsd-kind-icon">check<wbr>Opened</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="redislock.html#close" class="tsd-kind-icon">close</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="redislock.html#configure" class="tsd-kind-icon">configure</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="redislock.html#isopened" class="tsd-kind-icon">is<wbr>Opened</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="redislock.html#open" class="tsd-kind-icon">open</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="redislock.html#releaselock" class="tsd-kind-icon">release<wbr>Lock</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="redislock.html#retrystrategy" class="tsd-kind-icon">retry<wbr>Strategy</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="redislock.html#setreferences" class="tsd-kind-icon">set<wbr>References</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="redislock.html#tryacquirelock" class="tsd-kind-icon">try<wbr>Acquire<wbr>Lock</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="lock.redislock.html#acquirelock" class="tsd-kind-icon">acquire<wbr>Lock</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="lock.redislock.html#close" class="tsd-kind-icon">close</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="lock.redislock.html#configure" class="tsd-kind-icon">configure</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="lock.redislock.html#isopen" class="tsd-kind-icon">is<wbr>Open</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="lock.redislock.html#open" class="tsd-kind-icon">open</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="lock.redislock.html#releaselock" class="tsd-kind-icon">release<wbr>Lock</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="lock.redislock.html#setreferences" class="tsd-kind-icon">set<wbr>References</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="lock.redislock.html#tryacquirelock" class="tsd-kind-icon">try<wbr>Acquire<wbr>Lock</a></li>
 							</ul>
 						</section>
 					</div>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
-				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="_client" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _client</h3>
-					<div class="tsd-signature tsd-kind-icon">_client<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;null</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/8268b3a/src/lock/RedisLock.ts#L26">lock/RedisLock.ts:26</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="_connectionresolver" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _connection<wbr>Resolver</h3>
-					<div class="tsd-signature tsd-kind-icon">_connection<wbr>Resolver<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ConnectionResolver</span><span class="tsd-signature-symbol"> =&nbsp;new ConnectionResolver()</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/8268b3a/src/lock/RedisLock.ts#L19">lock/RedisLock.ts:19</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="_credentialresolver" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _credential<wbr>Resolver</h3>
-					<div class="tsd-signature tsd-kind-icon">_credential<wbr>Resolver<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CredentialResolver</span><span class="tsd-signature-symbol"> =&nbsp;new CredentialResolver()</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/8268b3a/src/lock/RedisLock.ts#L20">lock/RedisLock.ts:20</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="_lock" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _lock</h3>
-					<div class="tsd-signature tsd-kind-icon">_lock<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;IdGenerator.nextLong()</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/8268b3a/src/lock/RedisLock.ts#L22">lock/RedisLock.ts:22</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="_retries" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _retries</h3>
-					<div class="tsd-signature tsd-kind-icon">_retries<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;3</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/8268b3a/src/lock/RedisLock.ts#L24">lock/RedisLock.ts:24</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="_timeout" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _timeout</h3>
-					<div class="tsd-signature tsd-kind-icon">_timeout<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;30000</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/8268b3a/src/lock/RedisLock.ts#L23">lock/RedisLock.ts:23</a></li>
-						</ul>
-					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -196,25 +168,48 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Lock.acquireLock</p>
 								<ul>
-									<li>Defined in /Users/seroukhov/Projects/pip-services-node-ws/pip-services-redis-node/node_modules/pip-services-components-node/obj/src/lock/Lock.d.ts:9</li>
+									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-redis-node/node_modules/pip-services-components-node/obj/src/lock/Lock.d.ts:54</li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Acquiring a lock for a certain resource, identifiable by the lock&#39;s key.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>correlationId: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>unique business transaction id to trace calls across components.</p>
+									</div>
 								</li>
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the key to identify the lock by.</p>
+									</div>
 								</li>
 								<li>
 									<h5>ttl: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the lock&#39;s time-to-live.</p>
+									</div>
 								</li>
 								<li>
 									<h5>timeout: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the acquisition&#39;s retry interval.</p>
+									</div>
 								</li>
 								<li>
 									<h5>callback: <span class="tsd-signature-type">function</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the function to call once the lock has been acquired. Will be called
+											with an error if one is raised. If the retry interval times out,
+											a <a href="https://rawgit.com/pip-services-node/pip-services-commons-node/master/doc/api/classes/errors.conflictexception.html" class="external">ConflictException</a>
+										will be returned.</p>
+									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
@@ -239,32 +234,6 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
-					<a name="checkopened" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> check<wbr>Opened</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">check<wbr>Opened<span class="tsd-signature-symbol">(</span>correlationId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/8268b3a/src/lock/RedisLock.ts#L101">lock/RedisLock.ts:101</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>correlationId: <span class="tsd-signature-type">string</span></h5>
-								</li>
-								<li>
-									<h5>callback: <span class="tsd-signature-type">any</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
-						</li>
-					</ul>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="close" class="tsd-anchor"></a>
 					<h3>close</h3>
@@ -275,16 +244,27 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/8268b3a/src/lock/RedisLock.ts#L90">lock/RedisLock.ts:90</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/aa8bd3d/src/lock/RedisLock.ts#L167">lock/RedisLock.ts:167</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Closes component and frees used resources.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>correlationId: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>(optional) transaction id to trace execution through call chain.</p>
+									</div>
 								</li>
 								<li>
 									<h5>callback: <span class="tsd-signature-type">function</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>callback function that receives error or null no errors occured.</p>
+									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
@@ -320,13 +300,21 @@
 							<aside class="tsd-sources">
 								<p>Overrides Lock.configure</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/8268b3a/src/lock/RedisLock.ts#L28">lock/RedisLock.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/aa8bd3d/src/lock/RedisLock.ts#L83">lock/RedisLock.ts:83</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Configures component by passing configuration parameters.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>config: <span class="tsd-signature-type">ConfigParams</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>configuration parameters to be set.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -334,19 +322,25 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="isopened" class="tsd-anchor"></a>
-					<h3>is<wbr>Opened</h3>
+					<a name="isopen" class="tsd-anchor"></a>
+					<h3>is<wbr>Open</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">is<wbr>Opened<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Open<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/8268b3a/src/lock/RedisLock.ts#L41">lock/RedisLock.ts:41</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/aa8bd3d/src/lock/RedisLock.ts#L106">lock/RedisLock.ts:106</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Checks if the component is opened.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+							<p>true if the component has been opened and false otherwise.</p>
 						</li>
 					</ul>
 				</section>
@@ -360,16 +354,27 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/8268b3a/src/lock/RedisLock.ts#L45">lock/RedisLock.ts:45</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/aa8bd3d/src/lock/RedisLock.ts#L116">lock/RedisLock.ts:116</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Opens the component.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>correlationId: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>(optional) transaction id to trace execution through call chain.</p>
+									</div>
 								</li>
 								<li>
 									<h5>callback: <span class="tsd-signature-type">function</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>callback function that receives error or null no errors occured.</p>
+									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
@@ -405,19 +410,33 @@
 							<aside class="tsd-sources">
 								<p>Overrides Lock.releaseLock</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/8268b3a/src/lock/RedisLock.ts#L139">lock/RedisLock.ts:139</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/aa8bd3d/src/lock/RedisLock.ts#L232">lock/RedisLock.ts:232</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Releases prevously acquired lock by its key.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>correlationId: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>(optional) transaction id to trace execution through call chain.</p>
+									</div>
 								</li>
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>a unique lock key to release.</p>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> callback: <span class="tsd-signature-type">function</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>callback function that receives error or null for success.</p>
+									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
@@ -442,29 +461,6 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
-					<a name="retrystrategy" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> retry<wbr>Strategy</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">retry<wbr>Strategy<span class="tsd-signature-symbol">(</span>options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/8268b3a/src/lock/RedisLock.ts#L111">lock/RedisLock.ts:111</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>options: <span class="tsd-signature-type">any</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-						</li>
-					</ul>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="setreferences" class="tsd-anchor"></a>
 					<h3>set<wbr>References</h3>
@@ -475,13 +471,21 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/8268b3a/src/lock/RedisLock.ts#L36">lock/RedisLock.ts:36</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/aa8bd3d/src/lock/RedisLock.ts#L96">lock/RedisLock.ts:96</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Sets references to dependent components.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>references: <span class="tsd-signature-type">IReferences</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>references to locate the component dependencies.</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -499,22 +503,40 @@
 							<aside class="tsd-sources">
 								<p>Overrides Lock.tryAcquireLock</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/8268b3a/src/lock/RedisLock.ts#L130">lock/RedisLock.ts:130</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/aa8bd3d/src/lock/RedisLock.ts#L216">lock/RedisLock.ts:216</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Makes a single attempt to acquire a lock by its key.
+									It returns immediately a positive or negative result.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>correlationId: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>(optional) transaction id to trace execution through call chain.</p>
+									</div>
 								</li>
 								<li>
 									<h5>key: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>a unique lock key to acquire.</p>
+									</div>
 								</li>
 								<li>
 									<h5>ttl: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>a lock timeout (time to live) in milliseconds.</p>
+									</div>
 								</li>
 								<li>
 									<h5>callback: <span class="tsd-signature-type">function</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>callback function that receives a lock result or error.</p>
+									</div>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-siganture">
 											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
@@ -550,79 +572,55 @@
 					<li class="globals  ">
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/build.html">build</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/cache.html">cache</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/index.html">index</a>
+					</li>
+					<li class="current tsd-kind-external-module">
+						<a href="../modules/lock.html">lock</a>
+					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-class">
-						<a href="defaultredisfactory.html" class="tsd-kind-icon">Default<wbr>Redis<wbr>Factory</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="rediscache.html" class="tsd-kind-icon">Redis<wbr>Cache</a>
-					</li>
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-class">
-						<a href="redislock.html" class="tsd-kind-icon">Redis<wbr>Lock</a>
+					<li class="current tsd-kind-class tsd-parent-kind-external-module">
+						<a href="lock.redislock.html" class="tsd-kind-icon">Redis<wbr>Lock</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="redislock.html#_client" class="tsd-kind-icon">_client</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="redislock.html#_connectionresolver" class="tsd-kind-icon">_connection<wbr>Resolver</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="redislock.html#_credentialresolver" class="tsd-kind-icon">_credential<wbr>Resolver</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="redislock.html#_lock" class="tsd-kind-icon">_lock</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="redislock.html#_retries" class="tsd-kind-icon">_retries</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="redislock.html#_timeout" class="tsd-kind-icon">_timeout</a>
-							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="redislock.html#acquirelock" class="tsd-kind-icon">acquire<wbr>Lock</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
-								<a href="redislock.html#checkopened" class="tsd-kind-icon">check<wbr>Opened</a>
+								<a href="lock.redislock.html#acquirelock" class="tsd-kind-icon">acquire<wbr>Lock</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="redislock.html#close" class="tsd-kind-icon">close</a>
+								<a href="lock.redislock.html#close" class="tsd-kind-icon">close</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-								<a href="redislock.html#configure" class="tsd-kind-icon">configure</a>
+								<a href="lock.redislock.html#configure" class="tsd-kind-icon">configure</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="redislock.html#isopened" class="tsd-kind-icon">is<wbr>Opened</a>
+								<a href="lock.redislock.html#isopen" class="tsd-kind-icon">is<wbr>Open</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="redislock.html#open" class="tsd-kind-icon">open</a>
+								<a href="lock.redislock.html#open" class="tsd-kind-icon">open</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-								<a href="redislock.html#releaselock" class="tsd-kind-icon">release<wbr>Lock</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
-								<a href="redislock.html#retrystrategy" class="tsd-kind-icon">retry<wbr>Strategy</a>
+								<a href="lock.redislock.html#releaselock" class="tsd-kind-icon">release<wbr>Lock</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="redislock.html#setreferences" class="tsd-kind-icon">set<wbr>References</a>
+								<a href="lock.redislock.html#setreferences" class="tsd-kind-icon">set<wbr>References</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-								<a href="redislock.html#tryacquirelock" class="tsd-kind-icon">try<wbr>Acquire<wbr>Lock</a>
+								<a href="lock.redislock.html#tryacquirelock" class="tsd-kind-icon">try<wbr>Acquire<wbr>Lock</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="../globals.html#_" class="tsd-kind-icon">_</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-is-not-exported">
-						<a href="../globals.html#async" class="tsd-kind-icon">async</a>
-					</li>
 				</ul>
 			</nav>
 		</div>
