@@ -4,7 +4,16 @@ const pip_services_components_node_1 = require("pip-services-components-node");
 const pip_services_commons_node_1 = require("pip-services-commons-node");
 const RedisCache_1 = require("../cache/RedisCache");
 const RedisLock_1 = require("../lock/RedisLock");
+/**
+ * Creates Redis components by their descriptors.
+ *
+ * @see [[RedisCache]]
+ * @see [[RedisLock]]
+ */
 class DefaultRedisFactory extends pip_services_components_node_1.Factory {
+    /**
+     * Create a new instance of the factory.
+     */
     constructor() {
         super();
         this.registerAsType(DefaultRedisFactory.RedisCacheDescriptor, RedisCache_1.RedisCache);
