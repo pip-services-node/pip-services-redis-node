@@ -73,38 +73,47 @@
 						<p>Distributed cache that stores values in Redis in-memory database.</p>
 					</div>
 					<h3 id="configuration-parameters">Configuration parameters</h3>
-					<p>connection(s):
-						discovery_key:         (optional) a key to retrieve the connection from [[IDiscovery]]
-						host:                  host name or IP address
-						port:                  port number
-						uri:                   resource URI or connection string with all parameters in it
-						credential(s):
-						store_key:             key to retrieve parameters from credential store
-						username:              user name (currently is not used)
-						password:              user password
-						options:
-						retries:               number of retries (default: 3)
-						timeout:               default caching timeout in milliseconds (default: 1 minute)
-					max_size:              maximum number of values stored in this cache (default: 1000)</p>
+					<p>connection(s):</p>
+					<ul>
+						<li>discovery_key:         (optional) a key to retrieve the connection from <a href="https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/interfaces/connect.idiscovery.html" class="external">IDiscovery</a></li>
+						<li>host:                  host name or IP address</li>
+						<li>port:                  port number</li>
+						<li>uri:                   resource URI or connection string with all parameters in it</li>
+					</ul>
+					<p>credential(s):</p>
+					<ul>
+						<li>store_key:             key to retrieve parameters from credential store</li>
+						<li>username:              user name (currently is not used)</li>
+						<li>password:              user password</li>
+					</ul>
+					<p>options:</p>
+					<ul>
+						<li>retries:               number of retries (default: 3)</li>
+						<li>timeout:               default caching timeout in milliseconds (default: 1 minute)</li>
+						<li>max_size:              maximum number of values stored in this cache (default: 1000)</li>
+					</ul>
 					<h3 id="references">References</h3>
 					<ul>
-						<li><em>:discovery:</em>:*:1.0        (optional) IDiscovery services to resolve connection</li>
-						<li><em>:credential-store:</em>:*:1.0 (optional) Credential stores to resolve credential</li>
+						<li><code><em>:discovery:</em>:*:1.0</code>        (optional) <a href="https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/interfaces/connect.idiscovery.html" class="external">IDiscovery</a> services to resolve connection</li>
+						<li><code><em>:credential-store:</em>:*:1.0</code> (optional) Credential stores to resolve credential</li>
 					</ul>
 					<h3 id="example">Example</h3>
-					<p>let cache = new RedisCache();
-						cache.configure(ConfigParams.fromTuples(
-						&quot;host&quot;, &quot;localhost&quot;,
-						&quot;port&quot;, 6379
-					));</p>
-					<p>cache.open(&quot;123&quot;, (err) =&gt; {
-						...
-					});</p>
-					<p>cache.store(&quot;123&quot;, &quot;key1&quot;, &quot;ABC&quot;, (err) =&gt; {
-						cache.store(&quot;123&quot;, &quot;key1&quot;, (err, value) =&gt; {
-						// Result: &quot;ABC&quot;
-						});
-					});</p>
+					<pre><code>let cache = <span class="hljs-keyword">new</span> RedisCache();
+cache.configure(ConfigParams.fromTuples(
+  <span class="hljs-string">"host"</span>, <span class="hljs-string">"localhost"</span>,
+  <span class="hljs-string">"port"</span>, <span class="hljs-number">6379</span>
+));
+
+cache.open(<span class="hljs-string">"123"</span>, <span class="hljs-function"><span class="hljs-params">(err)</span> =&gt;</span> {
+  ...
+});
+
+cache.store(<span class="hljs-string">"123"</span>, <span class="hljs-string">"key1"</span>, <span class="hljs-string">"ABC"</span>, <span class="hljs-function"><span class="hljs-params">(err)</span> =&gt;</span> {
+     cache.store(<span class="hljs-string">"123"</span>, <span class="hljs-string">"key1"</span>, <span class="hljs-function"><span class="hljs-params">(err, value)</span> =&gt;</span> {
+         <span class="hljs-regexp">//</span> Result: <span class="hljs-string">"ABC"</span>
+     });
+});
+</code></pre>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -162,7 +171,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/aa8bd3d/src/cache/RedisCache.ts#L69">cache/RedisCache.ts:69</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/f9a79af/src/cache/RedisCache.ts#L71">cache/RedisCache.ts:71</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -187,7 +196,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/aa8bd3d/src/cache/RedisCache.ts#L165">cache/RedisCache.ts:165</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/f9a79af/src/cache/RedisCache.ts#L167">cache/RedisCache.ts:167</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -242,7 +251,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/aa8bd3d/src/cache/RedisCache.ts#L81">cache/RedisCache.ts:81</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/f9a79af/src/cache/RedisCache.ts#L83">cache/RedisCache.ts:83</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -273,7 +282,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/aa8bd3d/src/cache/RedisCache.ts#L104">cache/RedisCache.ts:104</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/f9a79af/src/cache/RedisCache.ts#L106">cache/RedisCache.ts:106</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -296,7 +305,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/aa8bd3d/src/cache/RedisCache.ts#L114">cache/RedisCache.ts:114</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/f9a79af/src/cache/RedisCache.ts#L116">cache/RedisCache.ts:116</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -351,7 +360,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/aa8bd3d/src/cache/RedisCache.ts#L243">cache/RedisCache.ts:243</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/f9a79af/src/cache/RedisCache.ts#L245">cache/RedisCache.ts:245</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -412,7 +421,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/aa8bd3d/src/cache/RedisCache.ts#L213">cache/RedisCache.ts:213</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/f9a79af/src/cache/RedisCache.ts#L215">cache/RedisCache.ts:215</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -477,7 +486,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/aa8bd3d/src/cache/RedisCache.ts#L94">cache/RedisCache.ts:94</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/f9a79af/src/cache/RedisCache.ts#L96">cache/RedisCache.ts:96</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -508,7 +517,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/aa8bd3d/src/cache/RedisCache.ts#L229">cache/RedisCache.ts:229</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/f9a79af/src/cache/RedisCache.ts#L231">cache/RedisCache.ts:231</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

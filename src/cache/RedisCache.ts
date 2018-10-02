@@ -23,41 +23,43 @@ import { ICache } from 'pip-services-components-node';
  * ### Configuration parameters ###
  * 
  * connection(s):           
- *   discovery_key:         (optional) a key to retrieve the connection from [[IDiscovery]]
- *   host:                  host name or IP address
- *   port:                  port number
- *   uri:                   resource URI or connection string with all parameters in it
+ *   - discovery_key:         (optional) a key to retrieve the connection from [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/interfaces/connect.idiscovery.html IDiscovery]]
+ *   - host:                  host name or IP address
+ *   - port:                  port number
+ *   - uri:                   resource URI or connection string with all parameters in it
+ * 
  * credential(s):
- *   store_key:             key to retrieve parameters from credential store
- *   username:              user name (currently is not used)
- *   password:              user password
+ *   - store_key:             key to retrieve parameters from credential store
+ *   - username:              user name (currently is not used)
+ *   - password:              user password
+ * 
  * options:
- *   retries:               number of retries (default: 3)
- *   timeout:               default caching timeout in milliseconds (default: 1 minute)
- *   max_size:              maximum number of values stored in this cache (default: 1000)        
+ *   - retries:               number of retries (default: 3)
+ *   - timeout:               default caching timeout in milliseconds (default: 1 minute)
+ *   - max_size:              maximum number of values stored in this cache (default: 1000)        
  *  
  * ### References ###
  * 
- * - *:discovery:*:*:1.0        (optional) IDiscovery services to resolve connection
- * - *:credential-store:*:*:1.0 (optional) Credential stores to resolve credential
+ * - <code>*:discovery:*:*:1.0</code>        (optional) [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/interfaces/connect.idiscovery.html IDiscovery]] services to resolve connection
+ * - <code>*:credential-store:*:*:1.0</code> (optional) Credential stores to resolve credential
  *
  * ### Example ###
  * 
- * let cache = new RedisCache();
- * cache.configure(ConfigParams.fromTuples(
- *   "host", "localhost",
- *   "port", 6379
- * ));
+ *     let cache = new RedisCache();
+ *     cache.configure(ConfigParams.fromTuples(
+ *       "host", "localhost",
+ *       "port", 6379
+ *     ));
  * 
- * cache.open("123", (err) => {
- *   ...
- * });
+ *     cache.open("123", (err) => {
+ *       ...
+ *     });
  * 
- * cache.store("123", "key1", "ABC", (err) => {
- *      cache.store("123", "key1", (err, value) => {
- *          // Result: "ABC"
- *      });
- * });
+ *     cache.store("123", "key1", "ABC", (err) => {
+ *          cache.store("123", "key1", (err, value) => {
+ *              // Result: "ABC"
+ *          });
+ *     });
  */
 export class RedisCache implements ICache, IConfigurable, IReferenceable, IOpenable {
     private _connectionResolver: ConnectionResolver = new ConnectionResolver();

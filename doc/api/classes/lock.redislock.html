@@ -73,22 +73,28 @@
 						<p>Distributed lock that is implemented based on Redis in-memory database.</p>
 					</div>
 					<h3 id="configuration-parameters">Configuration parameters</h3>
-					<p>connection(s):
-						discovery_key:         (optional) a key to retrieve the connection from [[IDiscovery]]
-						host:                  host name or IP address
-						port:                  port number
-						uri:                   resource URI or connection string with all parameters in it
-						credential(s):
-						store_key:             key to retrieve parameters from credential store
-						username:              user name (currently is not used)
-						password:              user password
-						options:
-						retry_timeout:         timeout in milliseconds to retry lock acquisition. (Default: 100)
-					retries:               number of retries (default: 3)</p>
+					<p>connection(s):</p>
+					<ul>
+						<li>discovery_key:         (optional) a key to retrieve the connection from <a href="https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/interfaces/connect.idiscovery.html" class="external">IDiscovery</a></li>
+						<li>host:                  host name or IP address</li>
+						<li>port:                  port number</li>
+						<li>uri:                   resource URI or connection string with all parameters in it</li>
+					</ul>
+					<p>credential(s):</p>
+					<ul>
+						<li>store_key:             key to retrieve parameters from credential store</li>
+						<li>username:              user name (currently is not used)</li>
+						<li>password:              user password</li>
+					</ul>
+					<p>options:</p>
+					<ul>
+						<li>retry_timeout:         timeout in milliseconds to retry lock acquisition. (Default: 100)</li>
+						<li>retries:               number of retries (default: 3)</li>
+					</ul>
 					<h3 id="references">References</h3>
 					<ul>
-						<li><em>:discovery:</em>:*:1.0        (optional) IDiscovery services to resolve connection</li>
-						<li><em>:credential-store:</em>:*:1.0 (optional) Credential stores to resolve credential</li>
+						<li><code><em>:discovery:</em>:*:1.0</code>        (optional) <a href="https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/interfaces/connect.idiscovery.html" class="external">IDiscovery</a> services to resolve connection</li>
+						<li><code><em>:credential-store:</em>:*:1.0</code> (optional) Credential stores to resolve credential</li>
 					</ul>
 					<h3 id="example">Example</h3>
 					<p>let lock = new RedisRedis();
@@ -168,7 +174,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from Lock.acquireLock</p>
 								<ul>
-									<li>Defined in /Users/mac/PipServices/PipServices v3.0/pip-services-redis-node/node_modules/pip-services-components-node/obj/src/lock/Lock.d.ts:54</li>
+									<li>Defined in D:/Work/Project/Node.js/documentation/pip-services-redis-node/node_modules/pip-services-components-node/obj/src/lock/Lock.d.ts:54</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -244,7 +250,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/aa8bd3d/src/lock/RedisLock.ts#L167">lock/RedisLock.ts:167</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/f9a79af/src/lock/RedisLock.ts#L169">lock/RedisLock.ts:169</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -300,7 +306,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides Lock.configure</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/aa8bd3d/src/lock/RedisLock.ts#L83">lock/RedisLock.ts:83</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/f9a79af/src/lock/RedisLock.ts#L85">lock/RedisLock.ts:85</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -331,7 +337,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/aa8bd3d/src/lock/RedisLock.ts#L106">lock/RedisLock.ts:106</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/f9a79af/src/lock/RedisLock.ts#L108">lock/RedisLock.ts:108</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -354,7 +360,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/aa8bd3d/src/lock/RedisLock.ts#L116">lock/RedisLock.ts:116</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/f9a79af/src/lock/RedisLock.ts#L118">lock/RedisLock.ts:118</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -410,7 +416,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides Lock.releaseLock</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/aa8bd3d/src/lock/RedisLock.ts#L232">lock/RedisLock.ts:232</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/f9a79af/src/lock/RedisLock.ts#L234">lock/RedisLock.ts:234</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -471,7 +477,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/aa8bd3d/src/lock/RedisLock.ts#L96">lock/RedisLock.ts:96</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/f9a79af/src/lock/RedisLock.ts#L98">lock/RedisLock.ts:98</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -503,7 +509,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides Lock.tryAcquireLock</p>
 								<ul>
-									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/aa8bd3d/src/lock/RedisLock.ts#L216">lock/RedisLock.ts:216</a></li>
+									<li>Defined in <a href="https://github.com/pip-services-node/pip-services-redis-node/blob/f9a79af/src/lock/RedisLock.ts#L218">lock/RedisLock.ts:218</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

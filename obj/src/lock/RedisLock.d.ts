@@ -10,22 +10,24 @@ import { Lock } from 'pip-services-components-node';
  * ### Configuration parameters ###
  *
  * connection(s):
- *   discovery_key:         (optional) a key to retrieve the connection from [[IDiscovery]]
- *   host:                  host name or IP address
- *   port:                  port number
- *   uri:                   resource URI or connection string with all parameters in it
+ *   - discovery_key:         (optional) a key to retrieve the connection from [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/interfaces/connect.idiscovery.html IDiscovery]]
+ *   - host:                  host name or IP address
+ *   - port:                  port number
+ *   - uri:                   resource URI or connection string with all parameters in it
+ *
  * credential(s):
- *   store_key:             key to retrieve parameters from credential store
- *   username:              user name (currently is not used)
- *   password:              user password
+ *   - store_key:             key to retrieve parameters from credential store
+ *   - username:              user name (currently is not used)
+ *   - password:              user password
+ *
  * options:
- *   retry_timeout:         timeout in milliseconds to retry lock acquisition. (Default: 100)
- *   retries:               number of retries (default: 3)
+ *   - retry_timeout:         timeout in milliseconds to retry lock acquisition. (Default: 100)
+ *   - retries:               number of retries (default: 3)
  *
  * ### References ###
  *
- * - *:discovery:*:*:1.0        (optional) IDiscovery services to resolve connection
- * - *:credential-store:*:*:1.0 (optional) Credential stores to resolve credential
+ * - <code>*:discovery:*:*:1.0</code>        (optional) [[https://rawgit.com/pip-services-node/pip-services-components-node/master/doc/api/interfaces/connect.idiscovery.html IDiscovery]] services to resolve connection
+ * - <code>*:credential-store:*:*:1.0</code> (optional) Credential stores to resolve credential
  *
  * ### Example ###
  *
